@@ -27,9 +27,9 @@ Basic Concepts to make the game work
 
 # Styling
 
-[ ] - Original Doodler
+[Done] - Original Doodler
 
-[ ] - Original Background
+[DOne] - Original Background
 
 [Done] - Original Platforms
 

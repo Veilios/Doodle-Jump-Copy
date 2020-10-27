@@ -18,7 +18,8 @@ body {
 .doodler {
     width: 60px;
     height: 85px;
-    background-color: red;
+    background-image: url('https://cdn.pixabay.com/photo/2020/02/08/17/09/unicorn-4830680_1280.png');
+    background-size: 80px 100px;
     position: absolute;
 }
 
@@ -26,6 +27,6 @@ body {
     width: 85px;
     height: 15px;
     background-image: url('https://cdn.pixabay.com/photo/2014/04/02/10/14/cloud-303181__340.png');
-    background-size: 85px 15px;
+    background-size: 95px 25px;
     position: absolute;
 }

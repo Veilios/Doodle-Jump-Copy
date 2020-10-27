@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let isGameOver = false;
     let platformCount = 5;
 
+    // Empty Array for platforms
+    let platforms = [];
+
     const createDoodler = () => {
         grid.appendChild(doodler);
         doodler.classList.add("doodler");
@@ -41,6 +44,19 @@ document.addEventListener('DOMContentLoaded', () => {
             let platformGap = 600 / platformCount;
             let newPlatformBottom = 100 + i * platformGap;
             let newPlatform = new Platform(newPlatformBottom);
+
+            platforms.push(newPlatform);
+            
+        };
+    };
+
+    const movePlatforms = () => {
+        if (doodlerBottomSpace > 200) {
+            platforms.forEach(platform => {
+                platform.bottom -= 4;
+                let visual = platform.visual;
+                visual.style.bottom = platform.bottom + "px";
+            });
         };
     };
 
@@ -48,6 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isGameOver) {
             createDoodler();
             createPlatforms();
+            // setInterval makes it so the movePlatform function is invoked every 30 miliseconds
+            setInterval(movePlatforms, 30)
         }
     };
     

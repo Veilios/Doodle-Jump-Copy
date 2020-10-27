@@ -2,7 +2,8 @@
     align-self: center;
     width: 400px;
     height: 600px;
-    background-color: yellow;
+    background-image: url('https://cdn.pixabay.com/photo/2016/05/20/14/07/video-game-background-1405076_1280.png');
+    background-position: 5% 95%;
     position: relative;
     font-size: 200px;
     text-align: center;
@@ -24,6 +25,7 @@ body {
 .platform {
     width: 85px;
     height: 15px;
-    background-color: green;
+    background-image: url('https://cdn.pixabay.com/photo/2014/04/02/10/14/cloud-303181__340.png');
+    background-size: 85px 15px;
     position: absolute;
 }

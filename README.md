@@ -31,7 +31,7 @@ Basic Concepts to make the game work
 
 [ ] - Original Background
 
-[ ] - Original Platforms
+[Done] - Original Platforms
 
 [ ] - New font for Score
 

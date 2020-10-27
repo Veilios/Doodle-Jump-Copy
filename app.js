@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isGameOver = false;
     let platformCount = 5;
 
-    // Empty Arrays
+    // Platforms Arrays
     let platforms = [];
 
     // TimerId is to stop the setInterval
@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let isGoingRight = false;
     let leftTimerId;
     let rightTimerId;
+
+    // Score
+    let score = 0;
 
 
     // Creates our Doodler
@@ -73,6 +76,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 platform.bottom -= 4;
                 let visual = platform.visual;
                 visual.style.bottom = platform.bottom + "px";
+
+                // This if statement will get rid of a platform when it hits the bottom of the grid
+                if (platform.bottom < 10) {
+                    let firstPlatform = platforms[0].visual;
+                    firstPlatform.classList.remove('platform');
+                    platforms.shift();
+
+                    // Adds to the score everytime a plaform is removed
+                    score++;
+
+                    // And here it will add a new platform at the top everytime one is removed 
+                    let newPlatform = new Platform(600);
+                    platforms.push(newPlatform);
+                }
             });
         };
     };
@@ -116,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     startPoint = doodlerBottomSpace;
                     jump();
                 };
-            })
+            });
         }, 30);
     };
 
@@ -125,8 +142,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameOver = () => {
         console.log('Game Over');
         isGameOver = true;
+
+        // Will get rid of the Doodler when game over
+        while (grid.firstElementChild) {
+            grid.removeChild(grid.firstChild);
+        };
+
+        // Displays score at game over
+        grid.innerHTML = score;
+
+        // Stops jumping
         clearInterval(upTimerId);
         clearInterval(downTimerId);
+
+        // Stops left and right movements along with some glitching
+        clearInterval(leftTimerId);
+        clearInterval(rightTimerId);
     };
 
 

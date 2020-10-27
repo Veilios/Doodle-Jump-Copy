@@ -12,8 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let isGameOver = false;
     let platformCount = 5;
 
-    // Empty Array for platforms
+    // Empty Arrays
     let platforms = [];
+
+    // TimerId is to stop the setInterval
+    let upTimerId
+    let downTimerId
 
     const createDoodler = () => {
         grid.appendChild(doodler);
@@ -60,12 +64,42 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     };
 
+    const jump = () => {
+        clearInterval(downTimerId);
+        upTimerId = setInterval(function () {
+            // Makes Doodler go up
+            doodlerBottomSpace += 20;
+            doodler.style.bottom = doodlerBottomSpace + "px";
+            //Makes Doodler go down
+            if (doodlerBottomSpace > 350) {
+                fall();
+            };
+        }, 30);
+    };
+
+    const fall = () => {
+        clearInterval(upTimerId);
+        downTimerId = setInterval(function() {
+            doodlerBottomSpace -= 5;
+            doodler.style.bottom = doodlerBottomSpace + "px";
+            if (doodlerBottomSpace <= 0) {
+                isGameOver();
+            }
+        }, 30);
+    };
+
     const start = () => {
         if (!isGameOver) {
+            // Creates the Game
             createDoodler();
             createPlatforms();
+
             // setInterval makes it so the movePlatform function is invoked every 30 miliseconds
             setInterval(movePlatforms, 30)
+
+            // Jump Movements for the Doodler
+            jump();
+            
         }
     };
     

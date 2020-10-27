@@ -35,7 +35,7 @@ Basic Concepts to make the game work
 
 [ ] - New font for Score
 
-[ ] - Center Grid of Game
+[Done] - Center Grid of Game
 
 
 

@@ -233,7 +233,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     // Attach to Button
+    // const startButton = document.createElement('button');
+    // startButton.innerHTML("Start Game");
+    // startButton.classList.add('start-button');
+    // grid.appendChild(startButton);
+    // startButton.onclick(start)
 
     start();
+    
+    
 
 })

@@ -31,3 +31,10 @@ body {
     background-size: 95px 25px;
     position: absolute;
 }
+
+.start-button {
+    background-color: red;
+    color: black;
+    width: 30px;
+    height: 15px;
+}

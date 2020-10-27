@@ -33,7 +33,7 @@ Basic Concepts to make the game work
 
 [Done] - Original Platforms
 
-[ ] - New font for Score
+[Done] - New font for Score
 
 [Done] - Center Grid of Game
 
